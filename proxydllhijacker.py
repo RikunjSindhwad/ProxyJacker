@@ -46,7 +46,7 @@ def check_arch(dllname):
 def compile_dll(dllname,arch):
     if arch == "x86":
         os.system("/usr/bin/i686-w64-mingw32-gcc template.c -shared -o "+dllname.replace(".dll","_proxy.dll")+" export.def")
-        print("[*] Created 32bit DLL : ]"+dllname.replace(".dll","_proxy.dll"))
+        print("[*] Created 32bit DLL : "+dllname.replace(".dll","_proxy.dll"))
     else:
         os.system("/usr/bin/x86_64-w64-mingw32-gcc template_64.c -shared -o "+dllname.replace(".dll","_proxy.dll")+" export.def")
         print("[*] Created 64bit DLL : "+dllname.replace(".dll","_proxy.dll"))
