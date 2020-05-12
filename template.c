@@ -75,24 +75,5 @@ void ExecutePayload(void) {
 
 }
 
-/*
-typedef VOID
-(NTAPI *PIMAGE_TLS_CALLBACK) (
-    PVOID DllHandle,
-    ULONG Reason,
-    PVOID Reserved
-    );
 
-VOID NTAPI TlsCallback(
-      IN PVOID DllHandle,
-      IN ULONG Reason,
-      IN PVOID Reserved)
-{
-	__asm  ( "int3" );
-}
-
-ULONG _tls_index;
-PIMAGE_TLS_CALLBACK _tls_cb[] = { TlsCallback, NULL };
-IMAGE_TLS_DIRECTORY _tls_used = { 0, 0, (ULONG)&_tls_index, (ULONG)_tls_cb, 1000, 0 };
-*/
 
