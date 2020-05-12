@@ -49,5 +49,7 @@
    kali@kali:~/Music/hijack/proxyjacker$ ls 
    export.def  msi.dll  msi_proxy.dll  proxydllhijacker.py  template_64.c  template.c
    ```
+   #### credits: Pentester Academy for teaching such great stuff 
+
 
    
