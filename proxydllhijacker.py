@@ -3,11 +3,18 @@
 import sys, pefile, os
 from time import sleep
 
-def create_def(dllname,arch):
-    if arch == "x86":
-        newdllname = "c://windows//syswow64//"+dllname.replace(".dll","")
+def create_def(dllname,arch,path):
+    if path == 0 :
+        if arch == "x86":
+            newdllname = "c://windows//syswow64//"+dllname.replace(".dll","")
+        else:
+            newdllname = "c://windows//system32//"+dllname.replace(".dll","")
     else:
-        newdllname = "c://windows//system32//"+dllname.replace(".dll","")
+        if arch == "x86":
+            newdllname = path.replace("/","//")+dllname.replace(".dll","")
+        else:
+            newdllname = path.replace("/","// ")+dllname.replace(".dll","")
+
 
     pe = pefile.PE(dllname)
 
@@ -22,11 +29,11 @@ def create_def(dllname,arch):
     for exp in pe.DIRECTORY_ENTRY_EXPORT.symbols:
         if exp.name :
             f = open('export.def','a')
-            f.write("%s=%s.%s @%d\n" % (exp.name, newdllname, exp.name, exp.ordinal))
+            f.write("%s='%s'.%s @%d\n" % (exp.name, newdllname, exp.name, exp.ordinal))
             f.close()
         else :
             f = open('export.def','a')
-            f.write("ord%d=%s.ord%d @%d NONAME\n" %(exp.ordinal, newdllName, exp.ordinal, exp.ordinal))
+            f.write("ord%d='%s'.ord%d @%d NONAME\n" %(exp.ordinal, newdllName, exp.ordinal, exp.ordinal))
             f.close()
     print("[*] Defination File Created with name of export.def\n")
     sleep(1)
@@ -61,17 +68,20 @@ def banner():
 
 def main():
     check_arch(sys.argv[1])
-    create_def(sys.argv[1],arch)
+    if len(sys.argv) < 3:
+        create_def(sys.argv[1],arch,0)
+    else:
+       create_def(sys.argv[1],arch,sys.argv[2])
+
     compile_dll(sys.argv[1],arch)
 
 if __name__ == "__main__":
     banner()
     sleep(1)
     if len(sys.argv) < 2:
-	print "\nUsage: " + sys.argv[0] + " 'DLL File Location' \n"
-	print "Usage: " + sys.argv[0] + " '/home/kali/xyz/abc.dll' \n"
+	print "\nUsage: " + sys.argv[0] + " 'DLL File Location' 'location for real path where real dll is '[optional]  \n"
+        print "Usage: " + sys.argv[0] + " '/home/kali/xyz/abc.dll' 'c:/program files/blabla/abc.dll'\n"
 	sys.exit()
     else:
         main()
-
 
