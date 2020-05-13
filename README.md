@@ -21,8 +21,8 @@
 
 2. Run script.
 
-   ```
-   kali@kali:~/Music/hijack/proxyjacker$ python proxydllhijacker.py 
+   ```bash
+   kali@kali:~/Music/hijack/proxyjacker$ python proxydllhijacker.py
    
    Proxy DLL Creator For DLL HIjacking
    		 By 
@@ -30,11 +30,11 @@
    	     [Mr.R0b07]
    
    
-   Usage: proxydllhijacker.py 'DLL File Location' 
+   Usage: proxydllhijacker.py 'DLL File Location' 'location for real path where real dll is '[optional]  
    
-   Usage: proxydllhijacker.py '/home/kali/xyz/abc.dll' 
+   Usage: proxydllhijacker.py '/home/kali/xyz/abc.dll' 'c:/program files/blabla/abc.dll'
    
-   kali@kali:~/Music/hijack/proxyjacker$ python proxydllhijacker.py msi.dll
+   kali@kali:~/Music/hijack/proxyjacker$ python proxydllhijacker.py version.dll 'C:/Program Files (x86)/Testingapp/'
    
    Proxy DLL Creator For DLL HIjacking
    		 By 
@@ -45,11 +45,14 @@
    
    [*] Defination File Created with name of export.def
    
-   [*] Created 32bit DLL : msi_proxy.dll
-   kali@kali:~/Music/hijack/proxyjacker$ ls 
-   export.def  msi.dll  msi_proxy.dll  proxydllhijacker.py  template_64.c  template.c
+   [*] Created 32bit DLL : version_proxy.dll
+   kali@kali:~/Music/hijack/proxyjacker$ 
    ```
-##### For Upgrade Request Use telegram to connect me on telegram https://t.me/R0B077
+   ####Changelogs:
+   1. Init 
+   2. Added Custom Path for creating Proxy 
+
+   ##### For Upgrade Request Use telegram to connect me on telegram https://t.me/R0B077
    #### credits: Pentester Academy for teaching such great stuff 
 
 
