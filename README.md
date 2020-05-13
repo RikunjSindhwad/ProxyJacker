@@ -48,9 +48,10 @@
    [*] Created 32bit DLL : version_proxy.dll
    kali@kali:~/Music/hijack/proxyjacker$ 
    ```
-   ####Changelogs:
-   1. Init 
-   2. Added Custom Path for creating Proxy 
+##### Changelogs:
+
+1. Initial 
+2. Added Custom Path to redirect 
 
    ##### For Upgrade Request Use telegram to connect me on telegram https://t.me/R0B077
    #### credits: Pentester Academy for teaching such great stuff 
