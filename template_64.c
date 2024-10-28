@@ -1,7 +1,4 @@
 #include <windows.h>
-#define SHELLCODELEN	1024	
-
-
 
 unsigned char shellcode[SHELLCODELEN] = 
 "YOUR SHELLCODE";
